@@ -134,6 +134,11 @@ public class HookshotControl : MonoBehaviour {
         return state == HookshotState.HOOKED; 
     }
 
+    public Vector2 HookPoint()
+    {
+        return hook.transform.position;
+    }
+
     public void CancelHook()
     {
         DestroyHookAndRope();

@@ -7,6 +7,7 @@ public class LateralMovement : MonoBehaviour
     public float speed;
     public float force;
     public HookshotControl hookshotControl;
+    public SpriteRenderer characterSprite;
     private JumpControl jump;
     private Rigidbody2D player;
     private Vector2 contactNormal;
@@ -52,21 +53,9 @@ public class LateralMovement : MonoBehaviour
 
     void Orient(float horizontal)
     {
-        Quaternion targetRotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.right, contactNormal) - 90f);
-
-        if (!jump.isGrounded())
+        if (jump.isGrounded() && horizontal != 0)
         {
-            targetRotation = Quaternion.Euler(0, 0, 0);
-        }
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360f * Time.deltaTime);
-    }
-
-    void OnCollisionEnter2D(Collision2D c)
-    {
-        if (c.collider.CompareTag("Environment"))
-        {
-            contactNormal = c.contacts[0].normal;
+            characterSprite.transform.rotation = Quaternion.FromToRotation(Vector2.right, horizontal * Vector2.right);
         }
     }
 }

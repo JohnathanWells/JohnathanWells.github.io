@@ -98,6 +98,8 @@ GameObject:
   - 4: {fileID: 481636}
   - 212: {fileID: 21212644}
   - 61: {fileID: 6111480}
+  - 61: {fileID: 6189258}
+  - 61: {fileID: 6153622}
   m_Layer: 0
   m_Name: FrogSprite
   m_TagString: Untagged
@@ -316,6 +318,32 @@ BoxCollider2D:
   m_Offset: {x: 0, y: .119999997}
   serializedVersion: 2
   m_Size: {x: 1.80999994, y: 1}
+--- !u!61 &6153622
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168826}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 784af44ee49d815438714b00650f5e24, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .660000026, y: .248679966}
+  serializedVersion: 2
+  m_Size: {x: 5.32999992, y: 2.92000008}
+--- !u!61 &6189258
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168826}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 784af44ee49d815438714b00650f5e24, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .660000026, y: .248679966}
+  serializedVersion: 2
+  m_Size: {x: 5.32999992, y: 2.92000008}
 --- !u!61 &6189350
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -390,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   force: 500
+  hookshotControl: {fileID: 11428262}
 --- !u!114 &11466172
 MonoBehaviour:
   m_ObjectHideFlags: 1

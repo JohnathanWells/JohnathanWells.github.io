@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   force: 500
+  hookshotControl: {fileID: 0}
 --- !u!114 &11464266
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,0 +1,12 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EntityTracker : MonoBehaviour {
+	public Transform target;
+
+	// Update is called once per frame
+	void Update () {
+		Vector3 newPosition = Camera.main.WorldToViewportPoint (target);
+		transform.position = newPosition;
+	}
+}

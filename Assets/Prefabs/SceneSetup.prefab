@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  force: 500
+  force: 600
   hookshotControl: {fileID: 11428262}
   characterSprite: {fileID: 21212644}
 --- !u!114 &11466172
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68be204a48c676646910df89d9039d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 75
+  force: 125
   canDoubleJump: 0
 --- !u!114 &11485342
 MonoBehaviour:

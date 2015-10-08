@@ -20,7 +20,7 @@ public class LateralMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal = Input.GetAxisRaw("Horizontal");
         Move(horizontal);
         Orient(horizontal);
     }

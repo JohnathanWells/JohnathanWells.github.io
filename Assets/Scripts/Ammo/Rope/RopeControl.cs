@@ -71,7 +71,7 @@ public class RopeControl : MonoBehaviour {
 
     void RotateObjectTowardsRope()
     {
-        Vector2 jointDirection = rope.GetNewJointDirection();
+        Vector2 jointDirection =  properties.connectedPosition - properties.tetherPosition;
         Quaternion rotation = Quaternion.FromToRotation(Vector2.right, -jointDirection);
         playerRenderer.gameObject.transform.rotation = rotation;
     }

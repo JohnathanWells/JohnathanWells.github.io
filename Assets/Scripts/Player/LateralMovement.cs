@@ -41,7 +41,6 @@ public class LateralMovement : MonoBehaviour
                 Vector2 lateralForce = Vector3.Cross((Vector3)pivotPoint - transform.position, Vector3.forward).normalized;
                 lateralForce *= horizontal * force / (player.velocity.magnitude + 1f);
                 player.AddForce(lateralForce);
-                Debug.Log(lateralForce);
             }
         }
         else if (Mathf.Abs(player.velocity.magnitude) < speed)

@@ -27,14 +27,14 @@ public class LateralMovement : MonoBehaviour
 
     void Move(float horizontal)
     {
-        if (jump.isGrounded())
+        if (!hookshotControl.IsHooked())
         {
             Vector2 lateralVelocity = transform.right * horizontal * speed;
             Vector2 velocity = player.velocity;
             velocity.x = lateralVelocity.x;
             player.velocity = velocity;
         }
-        else if (hookshotControl.IsHooked())
+        else
         {
             Vector2 pivotPoint = hookshotControl.HookPoint();
             if (horizontal > 0 && pivotPoint.x >= transform.position.x || horizontal < 0 && pivotPoint.x <= transform.position.x)
@@ -44,16 +44,11 @@ public class LateralMovement : MonoBehaviour
                 player.AddForce(lateralForce);
             }
         }
-        else if (Mathf.Abs(player.velocity.magnitude) < speed)
-        {
-            Vector2 lateralForce = Vector2.right * horizontal * force / (player.velocity.magnitude + 1f);
-            player.AddForce(lateralForce);
-        }
     }
 
     void Orient(float horizontal)
     {
-        if (jump.isGrounded() && horizontal != 0)
+        if (!hookshotControl.IsHooked() && horizontal != 0)
         {
             characterSprite.transform.rotation = Quaternion.FromToRotation(Vector2.right, horizontal * Vector2.right);
         }

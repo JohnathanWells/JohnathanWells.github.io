@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
+[RequireComponent (typeof (KeybindScript))]
 public class JumpControl : MonoBehaviour {
     public float force;
 
     private Rigidbody2D body;
+    public KeybindScript keybinds;
 
     private bool jump;
     private bool doubleJump;
@@ -19,7 +22,7 @@ public class JumpControl : MonoBehaviour {
 	
 	void Update () 
     {
-        if (Input.GetButtonDown("Jump") && Time.timeScale > 0f)
+        if (keybinds.GetButtonDown("Jump") && Time.timeScale > 0f)
         {
             if (grounded) {
                 jump = true;

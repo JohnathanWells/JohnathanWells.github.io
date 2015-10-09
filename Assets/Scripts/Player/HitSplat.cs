@@ -18,7 +18,6 @@ public class HitSplat : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(player.velocity.y);
         if (player.velocity.y <= -lethalVelocity)
         {
             lethalHit = true;
@@ -50,8 +49,8 @@ public class HitSplat : MonoBehaviour
     {
         if (lethalHit)
         {
-            float splatFactor = 1.6f * (-player.velocity.y + lethalVelocity + 1);
-            Vector2 destinSplat = new Vector2(frogSprite.localScale.x * 1.6f, frogSprite.localScale.y / 1.6f);
+            float splatFactor = 1.6f;
+            Vector2 destinSplat = new Vector2(frogSprite.localScale.x * splatFactor, frogSprite.localScale.y / splatFactor);
             StartCoroutine(Splat(destinSplat, 0.2f));
         }
     }

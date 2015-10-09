@@ -1142,7 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c622e38440859748b969e9095699585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lethalVelocity: 15
+  lethalVelocity: 9
   frogSprite: {fileID: 1555902538}
 --- !u!1 &1169606215
 GameObject:

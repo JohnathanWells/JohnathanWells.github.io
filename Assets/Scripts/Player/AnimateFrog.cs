@@ -15,7 +15,10 @@ public class AnimateFrog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("Grounded", jump.isGrounded());
-        anim.SetBool("Moving", Input.GetAxisRaw("Horizontal") != 0);
+        if(Time.time > 0.1f)
+        {
+            anim.SetBool("Grounded", jump.isGrounded());
+            anim.SetBool("Moving", Input.GetAxisRaw("Horizontal") != 0);
+        }
     }
 }

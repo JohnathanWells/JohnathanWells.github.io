@@ -50,7 +50,8 @@ public class LateralMovement : MonoBehaviour
     {
         if (!hookshotControl.IsHooked() && horizontal != 0)
         {
-            characterSprite.transform.rotation = Quaternion.FromToRotation(Vector2.right, horizontal * Vector2.right);
+            Quaternion rot = horizontal == 1 ? Quaternion.Euler(0, 0, -5.73f) : Quaternion.Euler(0, 180, -5.73f);
+            characterSprite.transform.rotation = rot;
         }
     }
 }

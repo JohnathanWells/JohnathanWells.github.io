@@ -40,12 +40,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b048411d42535bf49b4c12d89d3ca0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostFactor: 2
-  climbSpeed: .5
+  speedBoostFactor: 5
+  climbSpeed: 3
   hookshot: {fileID: 0}
   hook: {fileID: 0}
-  minLength: 0
-  maxLength: 0
+  minLength: .5
+  maxLength: 10
 --- !u!120 &12099772
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -96,11 +96,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: eecb33f278356ff49902ad3a17e6a309, type: 2}
     - target: {fileID: 0}
       propertyPath: speedBoostFactor
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: climbSpeed
-      value: .5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minLength
@@ -108,7 +108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxLength
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Positions.Array.data[0].x

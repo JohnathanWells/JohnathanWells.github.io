@@ -12,7 +12,7 @@ public class RopeControl : MonoBehaviour {
     public GameObject hook;
 
     private LineRenderer line;
-    private SpringJoint2D rope;
+    private DistanceJoint2D rope;
     public float minLength;
     public float maxLength;
 
@@ -60,10 +60,10 @@ public class RopeControl : MonoBehaviour {
     private void MakeRope()
     {
         float initialDistance = Vector2.Distance(player.transform.position, hook.transform.position);
-        rope = (SpringJoint2D)player.AddComponent<SpringJoint2D>();
+        rope = (DistanceJoint2D)player.AddComponent<DistanceJoint2D>();
         rope.connectedBody = hook.GetComponent<Rigidbody2D>();
         rope.distance = Mathf.Clamp(initialDistance, minLength, maxLength);
-        rope.dampingRatio = 1;
+        rope.maxDistanceOnly = true;
     }
 
     public void DetachRope()

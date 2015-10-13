@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HookshotControl : MonoBehaviour {
     enum HookshotState {
@@ -27,6 +28,7 @@ public class HookshotControl : MonoBehaviour {
 
     public float retractTime;
 
+    private List<Collider2D> playerColliders;
     private GameObject hand;
     private RopeControl rope;
     public AimAtMouse mouseAimer;
@@ -41,7 +43,17 @@ public class HookshotControl : MonoBehaviour {
     {
         MapStateFunctions();
         hand = transform.parent.gameObject;
+        FindPlayerColliders();
         ChangeState(HookshotState.READY);
+    }
+
+    private void FindPlayerColliders()
+    {
+        playerColliders = new List<Collider2D>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject frogSprite = (GameObject)player.transform.Find("FrogSprite").gameObject;
+        foreach(Collider2D shittyCollider in frogSprite.GetComponents<Collider2D>())
+            playerColliders.Add(shittyCollider);
     }
 
     void ChangeState(HookshotState newState)
@@ -101,11 +113,20 @@ public class HookshotControl : MonoBehaviour {
         hook = (GameObject)Instantiate(hookFab, hookPosition, transform.rotation);
         hook.GetComponent<Hook>().hookGun = this;
 
+        IgnoreHookPlayerCollisions();
+
         // And spawn a rope to go with it
         GameObject ropeObj = Instantiate(ropeFab);
         rope = ropeObj.GetComponent<RopeControl>();
         rope.hookshot = this;
         rope.hook = hook;
+    }
+
+    void IgnoreHookPlayerCollisions()
+    {
+        Collider2D hookCollider = hook.GetComponent<PolygonCollider2D>();
+        foreach(Collider2D playerCollider in playerColliders)
+            Physics2D.IgnoreCollision(hookCollider, playerCollider, true);
     }
 
     void DestroyHookAndRope()

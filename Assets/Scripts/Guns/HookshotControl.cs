@@ -81,7 +81,7 @@ public class HookshotControl : MonoBehaviour {
         }
     }
 
-    void Extend() { }
+    void Extend() { /* The hook object is traveling through the world. */ }
 
     void Hooked()
     {

@@ -133,6 +133,7 @@ public class HookshotControl : MonoBehaviour {
     {
         Destroy(hook);
         if (rope != null) {
+            rope.DetachRope();
             Destroy(rope.gameObject);
         }
     }

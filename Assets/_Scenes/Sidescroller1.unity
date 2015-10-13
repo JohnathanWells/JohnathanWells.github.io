@@ -991,6 +991,10 @@ Prefab:
       propertyPath: m_Offset.y
       value: -.0299999993
       objectReference: {fileID: 0}
+    - target: {fileID: 11402512, guid: b866b03f9d953874aa53a45d93b3a489, type: 2}
+      propertyPath: moveForce
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b866b03f9d953874aa53a45d93b3a489, type: 2}
   m_IsPrefabParent: 0

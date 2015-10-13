@@ -6,6 +6,7 @@ public class LateralMovement : MonoBehaviour
 {
     public float speed;
     public float force;
+    public float moveForce;
     public HookshotControl hookshotControl;
     public SpriteRenderer characterSprite;
     private JumpControl jump;
@@ -29,10 +30,14 @@ public class LateralMovement : MonoBehaviour
     {
         if (!hookshotControl.IsHooked())
         {
-            Vector2 lateralVelocity = transform.right * horizontal * speed;
-            Vector2 velocity = player.velocity;
-            velocity.x = lateralVelocity.x;
-            player.velocity = velocity;
+            Vector2 lateralForce = new Vector2(horizontal * moveForce, 0);
+
+            if (Mathf.Abs(player.velocity.x) < speed)
+                player.AddForce(lateralForce);
+
+            if (player.velocity.x > 0 && horizontal < 0
+             || player.velocity.x < 0 && horizontal > 0)
+                player.velocity = new Vector2(0, player.velocity.y);
         }
         else
         {

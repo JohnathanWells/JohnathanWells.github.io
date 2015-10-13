@@ -46,8 +46,8 @@ public class RopeControl : MonoBehaviour {
     void ControlRope()
     {
         float vertical = boostEnabled ? speedBoostFactor : Input.GetAxis("Vertical");
-        float distance = vertical * climbSpeed * Time.deltaTime;
-        rope.distance = Mathf.Clamp(rope.distance - vertical, minLength, maxLength);
+        float distance = vertical * climbSpeed * Time.fixedDeltaTime;
+        rope.distance = Mathf.Clamp(rope.distance - distance, minLength, maxLength);
     }
 
     public void AttachRope()

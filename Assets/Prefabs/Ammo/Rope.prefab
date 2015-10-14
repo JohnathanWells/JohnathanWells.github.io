@@ -40,20 +40,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b048411d42535bf49b4c12d89d3ca0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkPrefab: {fileID: 106776, guid: 3c30e6d1e0d24e24797eeff49d3930ed, type: 2}
   speedBoostFactor: 5
-  climbSpeed: 2.5
-  properties:
-    linkPrefab: {fileID: 106776, guid: 3c30e6d1e0d24e24797eeff49d3930ed, type: 2}
-    tetherObject: {fileID: 0}
-    connectedObject: {fileID: 0}
-    parentObject: {fileID: 0}
-    minLength: .5
-    maxLength: 10
-    linkLength: .25
-    connectionOffset: {x: -.239999995, y: .699999988}
+  climbSpeed: 3
   hookshot: {fileID: 0}
   hook: {fileID: 0}
+  minLength: .5
+  maxLength: 10
 --- !u!120 &12099772
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -108,7 +100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: climbSpeed
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minLength
@@ -116,7 +108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxLength
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Positions.Array.data[0].x

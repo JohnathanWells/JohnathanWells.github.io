@@ -45,6 +45,7 @@ GameObject:
   - 114: {fileID: 11478204}
   - 50: {fileID: 5073012}
   - 114: {fileID: 11414272}
+  - 61: {fileID: 6188672}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,12 +79,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 424174}
   - 212: {fileID: 21231396}
-  - 61: {fileID: 6115074}
-  - 58: {fileID: 5874546}
-  - 58: {fileID: 5828506}
-  - 58: {fileID: 5872822}
-  - 58: {fileID: 5869916}
   - 95: {fileID: 9500482}
+  - 114: {fileID: 11432522}
   m_Layer: 0
   m_Name: FrogSprite
   m_TagString: Untagged
@@ -109,8 +106,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .180000007, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.0499828532, w: .998750091}
+  m_LocalPosition: {x: -.00300000003, y: .384000003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 476450}
@@ -135,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .119999997, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424174}
@@ -171,71 +168,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5828506
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199424}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.449999988, y: .0700000003}
-  serializedVersion: 2
-  m_Radius: .219999999
---- !u!58 &5869916
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199424}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.280000001, y: -.180000007}
-  serializedVersion: 2
-  m_Radius: .300000012
---- !u!58 &5872822
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199424}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .239999995, y: -.119999997}
-  serializedVersion: 2
-  m_Radius: .300000012
---- !u!58 &5874546
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199424}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .409999996, y: .270000011}
-  serializedVersion: 2
-  m_Radius: .209999993
---- !u!61 &6115074
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199424}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.100000001, y: .180000007}
-  serializedVersion: 2
-  m_Size: {x: .660000026, y: .300000012}
 --- !u!61 &6161566
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -246,9 +178,22 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: .0299999993, y: -.159999996}
+  m_Offset: {x: .0299999993, y: .0599999987}
   serializedVersion: 2
   m_Size: {x: .910000026, y: .289999992}
+--- !u!61 &6188672
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149900}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 784af44ee49d815438714b00650f5e24, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .0199999996, y: .360000014}
+  serializedVersion: 2
+  m_Size: {x: 1.20000005, y: .610000014}
 --- !u!95 &9500482
 Animator:
   serializedVersion: 3
@@ -279,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   force: 600
+  moveForce: 400
   hookshotControl: {fileID: 11405712}
   characterSprite: {fileID: 21231396}
 --- !u!114 &11405712
@@ -310,6 +256,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lethalVelocity: 9
   frogSprite: {fileID: 424174}
+--- !u!114 &11432522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed63c5d209f25b4ba4551bb42043dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump: {fileID: 11448862}
 --- !u!114 &11444918
 MonoBehaviour:
   m_ObjectHideFlags: 1

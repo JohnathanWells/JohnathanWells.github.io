@@ -7,12 +7,14 @@ public class RopeControl : MonoBehaviour {
     public float climbSpeed;
 
     private GameObject player;
+    private Rigidbody2D playerBody;
     private SpriteRenderer playerRenderer;
     public HookshotControl hookshot;
     public GameObject hook;
 
     private LineRenderer line;
     private DistanceJoint2D rope;
+    public Vector2 tetherOffset;
     public float minLength;
     public float maxLength;
 
@@ -21,6 +23,8 @@ public class RopeControl : MonoBehaviour {
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerBody = player.GetComponent<Rigidbody2D>();
+        playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
         line = GetComponent<LineRenderer>();
         attached = false;
         boostEnabled = false;
@@ -53,7 +57,6 @@ public class RopeControl : MonoBehaviour {
     public void AttachRope()
     {
         MakeRope();
-        playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
         attached = true;
     }
 
@@ -73,18 +76,26 @@ public class RopeControl : MonoBehaviour {
             playerRenderer.gameObject.transform.rotation = Quaternion.identity;
             DestroyObject(rope);
         }
+        attached = false;
     }
 
     void RotateObjectTowardsRope()
     {
-        Vector2 jointDirection = player.transform.position - hook.transform.position;
-        Quaternion rotation = Quaternion.FromToRotation(Vector2.right, -jointDirection);
-        playerRenderer.gameObject.transform.rotation = rotation;
+        Transform spriteTransform = playerRenderer.gameObject.transform;
+
+        Vector2 jointDirection = hook.transform.position - spriteTransform.position;
+        spriteTransform.rotation = Quaternion.FromToRotation(Vector2.right, jointDirection);
+        spriteTransform.Rotate(jointDirection, playerBody.velocity.x < 0f ? 180f : 0f, Space.World);
+
+        rope.anchor = playerRenderer.transform.localPosition + spriteTransform.rotation * tetherOffset;
     }
 
     void DrawRope()
     {
-        line.SetPosition(0, hookshot.transform.position);
+        if (rope)
+            line.SetPosition(0, rope.transform.position + (Vector3)rope.anchor);
+        else
+            line.SetPosition(0, hookshot.transform.position);
         line.SetPosition(1, hook.transform.position);
     }
 }

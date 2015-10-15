@@ -1118,7 +1118,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 496110, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 29.8999996
+      value: 29.7099991
       objectReference: {fileID: 0}
     - target: {fileID: 496110, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1147,18 +1147,6 @@ Prefab:
     - target: {fileID: 496110, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439592, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}
-      propertyPath: xMin
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 11439592, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}
-      propertyPath: xMax
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 150770, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c28dbb6126424cf49bf6bb536fd48901, type: 2}

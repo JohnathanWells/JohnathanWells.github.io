@@ -13,6 +13,7 @@ public class RopeControl : MonoBehaviour {
 
     private LineRenderer line;
     private DistanceJoint2D rope;
+    public Vector2 tetherOffset;
     public float minLength;
     public float maxLength;
 
@@ -80,11 +81,16 @@ public class RopeControl : MonoBehaviour {
         Vector2 jointDirection = player.transform.position - hook.transform.position;
         Quaternion rotation = Quaternion.FromToRotation(Vector2.right, -jointDirection);
         playerRenderer.gameObject.transform.rotation = rotation;
+
+        rope.anchor = playerRenderer.transform.localPosition + rotation * tetherOffset;
     }
 
     void DrawRope()
     {
-        line.SetPosition(0, hookshot.transform.position);
+        if (rope)
+            line.SetPosition(0, rope.transform.position + (Vector3)rope.anchor);
+        else
+            line.SetPosition(0, hookshot.transform.position);
         line.SetPosition(1, hook.transform.position);
     }
 }

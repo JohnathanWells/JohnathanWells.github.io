@@ -40,13 +40,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b048411d42535bf49b4c12d89d3ca0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostFactor: 5
-  climbSpeed: 3
   hookshot: {fileID: 0}
   hook: {fileID: 0}
-  tetherOffset: {x: .773000002, y: .465000004}
-  minLength: .5
-  maxLength: 10
+  ropeProperties:
+    climbSpeed: 3
+    boostSpeed: 5
+    minLength: .5
+    maxLength: 10
+    initialDistancePortion: .850000024
+  anchorOffset: {x: .5, y: .469999999}
+  springPrefab: {fileID: 108492, guid: d4889896881276443b15063725b2a1ca, type: 2}
 --- !u!120 &12099772
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -195,6 +198,50 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: tetherOffset.y
       value: .465000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: springPrefab
+      value: 
+      objectReference: {fileID: 108492, guid: d4889896881276443b15063725b2a1ca, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ropeProperties.climbSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ropeProperties.boostSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ropeProperties.minLength
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ropeProperties.maxLength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: springProperties.anchorOffset.x
+      value: .790000021
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: springProperties.anchorOffset.y
+      value: .469999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: springProperties.dampingRatio
+      value: .75
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ropeProperties.initialDistancePortion
+      value: .850000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: anchorOffset.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: anchorOffset.y
+      value: .469999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

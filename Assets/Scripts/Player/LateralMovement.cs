@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(JumpControl))]
 public class LateralMovement : MonoBehaviour
 {
     public float speed;
@@ -9,14 +8,12 @@ public class LateralMovement : MonoBehaviour
     public float moveForce;
     public HookshotControl hookshotControl;
     public SpriteRenderer characterSprite;
-    private JumpControl jump;
     private Rigidbody2D player;
     private Vector2 contactNormal;
 
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
-        jump = GetComponent<JumpControl>();
     }
 
     void FixedUpdate()

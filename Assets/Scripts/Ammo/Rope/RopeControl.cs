@@ -95,7 +95,7 @@ public class RopeControl : MonoBehaviour {
         if (rope)
             line.SetPosition(0, rope.transform.position + (Vector3)rope.anchor);
         else
-            line.SetPosition(0, hookshot.transform.position);
+            line.SetPosition(0, player.transform.position + playerRenderer.transform.localPosition + playerRenderer.transform.rotation * tetherOffset);
         line.SetPosition(1, hook.transform.position);
     }
 }

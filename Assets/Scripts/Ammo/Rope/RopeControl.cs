@@ -24,6 +24,7 @@ public class RopeControl : MonoBehaviour {
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         playerBody = player.GetComponent<Rigidbody2D>();
+        playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
         line = GetComponent<LineRenderer>();
         attached = false;
         boostEnabled = false;
@@ -56,7 +57,6 @@ public class RopeControl : MonoBehaviour {
     public void AttachRope()
     {
         MakeRope();
-        playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
         attached = true;
     }
 
@@ -76,6 +76,7 @@ public class RopeControl : MonoBehaviour {
             playerRenderer.gameObject.transform.rotation = Quaternion.identity;
             DestroyObject(rope);
         }
+        attached = false;
     }
 
     void RotateObjectTowardsRope()

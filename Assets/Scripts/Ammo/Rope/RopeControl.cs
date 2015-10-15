@@ -7,6 +7,7 @@ public class RopeControl : MonoBehaviour {
     public float climbSpeed;
 
     private GameObject player;
+    private Rigidbody2D playerBody;
     private SpriteRenderer playerRenderer;
     public HookshotControl hookshot;
     public GameObject hook;
@@ -22,6 +23,7 @@ public class RopeControl : MonoBehaviour {
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerBody = player.GetComponent<Rigidbody2D>();
         line = GetComponent<LineRenderer>();
         attached = false;
         boostEnabled = false;
@@ -78,11 +80,13 @@ public class RopeControl : MonoBehaviour {
 
     void RotateObjectTowardsRope()
     {
-        Vector2 jointDirection = player.transform.position - hook.transform.position;
-        Quaternion rotation = Quaternion.FromToRotation(Vector2.right, -jointDirection);
-        playerRenderer.gameObject.transform.rotation = rotation;
+        Transform spriteTransform = playerRenderer.gameObject.transform;
 
-        rope.anchor = playerRenderer.transform.localPosition + rotation * tetherOffset;
+        Vector2 jointDirection = hook.transform.position - spriteTransform.position;
+        spriteTransform.rotation = Quaternion.FromToRotation(Vector2.right, jointDirection);
+        spriteTransform.Rotate(jointDirection, playerBody.velocity.x < 0f ? 180f : 0f, Space.World);
+
+        rope.anchor = playerRenderer.transform.localPosition + spriteTransform.rotation * tetherOffset;
     }
 
     void DrawRope()

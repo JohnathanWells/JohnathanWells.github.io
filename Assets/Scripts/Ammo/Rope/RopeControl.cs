@@ -10,14 +10,8 @@ public struct Rope
 
     public float minLength;
     public float maxLength;
-}
 
-[System.Serializable]
-public struct RopeSpring
-{
-    public Vector2 anchorOffset;
-    public float dampingRatio;
-    public float frequency;
+    public float initialDistancePortion;
 }
 
 public class RopeControl : MonoBehaviour {
@@ -28,7 +22,7 @@ public class RopeControl : MonoBehaviour {
     public GameObject hook;
 
     public Rope ropeProperties;
-    public RopeSpring springProperties;
+    public Vector2 anchorOffset;
 
     public GameObject springPrefab;
 
@@ -76,33 +70,23 @@ public class RopeControl : MonoBehaviour {
     public void AttachRope()
     {
         MakeRope();
-        line.SetVertexCount(3);
         attached = true;
         DrawRope();
     }
 
     private void MakeRope()
     {
-        float initialDistance = Vector2.Distance(player.transform.position, hook.transform.position);
-
         // Adding spring joint first. The rope will attach to it
-        spring = (SpringJoint2D)player.AddComponent<SpringJoint2D>();
-        spring.distance = 0f;
-        spring.dampingRatio = springProperties.dampingRatio;
-        spring.frequency = springProperties.frequency;
-        RotateObjectTowardsRope();
+        float initialDistance = Vector2.Distance(player.transform.position, hook.transform.position);
+        initialDistance *= ropeProperties.initialDistancePortion;
 
         // Rope Joint 
-        Vector2 jointPosition = (Vector2)spring.transform.position + spring.anchor;
-        GameObject ropeObj = (GameObject)(GameObject.Instantiate(springPrefab, jointPosition, Quaternion.identity));
-        ropeObj.transform.parent = player.transform;
-
-        rope = ropeObj.GetComponent<DistanceJoint2D>();
+        rope = player.AddComponent<DistanceJoint2D>();
         rope.connectedBody = hook.GetComponent<Rigidbody2D>();
         rope.distance = Mathf.Clamp(initialDistance, ropeProperties.minLength, ropeProperties.maxLength);
         rope.maxDistanceOnly = true;
 
-        spring.connectedBody = rope.GetComponent<Rigidbody2D>();
+        RotateObjectTowardsRope();
     }
 
     public void DetachRope()
@@ -111,9 +95,7 @@ public class RopeControl : MonoBehaviour {
         {
             playerRenderer.gameObject.transform.rotation = Quaternion.identity;
             DestroyObject(rope);
-            DestroyObject(spring);
         }
-        line.SetVertexCount(2);
         attached = false;
     }
 
@@ -124,23 +106,17 @@ public class RopeControl : MonoBehaviour {
         Vector2 jointDirection = hook.transform.position - spriteTransform.position;
         spriteTransform.rotation = Quaternion.FromToRotation(Vector2.right, jointDirection);
 
-        spring.anchor = playerRenderer.transform.localPosition + spriteTransform.rotation * springProperties.anchorOffset;
+        rope.anchor = playerRenderer.transform.localPosition + spriteTransform.rotation * anchorOffset;
     }
 
     void DrawRope()
     {
         if (attached)
-        {
-            line.SetPosition(0, spring.transform.position + (Vector3)spring.anchor);
-            line.SetPosition(1, rope.transform.position);
-            line.SetPosition(2, hook.transform.position);
-        }
+            line.SetPosition(0, rope.transform.position + (Vector3)rope.anchor);
         else
-        {
             line.SetPosition(0, player.transform.position 
                               + playerRenderer.transform.localPosition 
-                              + playerRenderer.transform.rotation * springProperties.anchorOffset);
-            line.SetPosition(1, hook.transform.position);
-        }
+                              + playerRenderer.transform.rotation * anchorOffset);
+        line.SetPosition(1, hook.transform.position);
     }
 }

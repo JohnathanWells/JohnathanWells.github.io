@@ -862,7 +862,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1328702979}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 476450, guid: b866b03f9d953874aa53a45d93b3a489, type: 2}
       propertyPath: m_LocalPosition.x
@@ -894,7 +894,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 476450, guid: b866b03f9d953874aa53a45d93b3a489, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11448862, guid: b866b03f9d953874aa53a45d93b3a489, type: 2}
       propertyPath: keybinds
@@ -1300,34 +1300,6 @@ Transform:
   - {fileID: 184384292}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &1328702978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1328702979}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1328702979
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1328702978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 245882968}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!4 &1335177112 stripped
 Transform:
   m_PrefabParentObject: {fileID: 420988, guid: 5ca5412c29560164eb241df9d3364f17, type: 2}

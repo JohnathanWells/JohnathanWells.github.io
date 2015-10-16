@@ -36,7 +36,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150786}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 019b476438ed7a84eb357f49ab9cdb48, type: 2}
+  m_Material: {fileID: 6200000, guid: 784af44ee49d815438714b00650f5e24, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -78,7 +78,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 019b476438ed7a84eb357f49ab9cdb48, type: 2}
+      objectReference: {fileID: 6200000, guid: 784af44ee49d815438714b00650f5e24, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150786}

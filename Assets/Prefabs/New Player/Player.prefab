@@ -70,6 +70,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &154834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423042}
+  - 114: {fileID: 11449760}
+  - 61: {fileID: 6151468}
+  m_Layer: 0
+  m_Name: WallSensorL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &184664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 411614}
+  - 114: {fileID: 11472900}
+  - 61: {fileID: 6191496}
+  m_Layer: 0
+  m_Name: WallSensorR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &199424
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +122,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &411614
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476450}
+  m_RootOrder: 3
 --- !u!4 &422932
 Transform:
   m_ObjectHideFlags: 1
@@ -100,6 +146,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425586}
   m_RootOrder: 0
+--- !u!4 &423042
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476450}
+  m_RootOrder: 4
 --- !u!4 &424174
 Transform:
   m_ObjectHideFlags: 1
@@ -138,6 +196,8 @@ Transform:
   - {fileID: 424174}
   - {fileID: 425586}
   - {fileID: 494560}
+  - {fileID: 411614}
+  - {fileID: 423042}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &494560
@@ -168,6 +228,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &6151468
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154834}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.649999976, y: .449999988}
+  serializedVersion: 2
+  m_Size: {x: .100000001, y: .699999988}
 --- !u!61 &6161566
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -194,6 +267,19 @@ BoxCollider2D:
   m_Offset: {x: .0199999996, y: .360000014}
   serializedVersion: 2
   m_Size: {x: 1.20000005, y: .610000014}
+--- !u!61 &6191496
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184664}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: .649999976, y: .449999988}
+  serializedVersion: 2
+  m_Size: {x: .100000001, y: .699999988}
 --- !u!95 &9500482
 Animator:
   serializedVersion: 3
@@ -227,6 +313,8 @@ MonoBehaviour:
   moveForce: 400
   hookshotControl: {fileID: 11405712}
   characterSprite: {fileID: 21231396}
+  wallSensorRight: {fileID: 11472900}
+  wallSensorLeft: {fileID: 11449760}
 --- !u!114 &11405712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,6 +381,18 @@ MonoBehaviour:
   force: 90
   keybinds: {fileID: 0}
   canDoubleJump: 0
+--- !u!114 &11449760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f6f7f2cdcf4794788f361bd4cdda33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptySpace: 0
 --- !u!114 &11465158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,6 +405,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11448862}
+--- !u!114 &11472900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91f6f7f2cdcf4794788f361bd4cdda33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptySpace: 0
 --- !u!114 &11478204
 MonoBehaviour:
   m_ObjectHideFlags: 1

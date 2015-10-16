@@ -12,6 +12,8 @@ public class LateralMovement : MonoBehaviour
     private JumpControl jump;
     private Rigidbody2D player;
     private Vector2 contactNormal;
+    public wallSensor wallSensorRight;
+    public wallSensor wallSensorLeft;
 
     void Start()
     {
@@ -28,9 +30,14 @@ public class LateralMovement : MonoBehaviour
 
     void Move(float horizontal)
     {
+        int traverse = 1;
+
+        if (!checkWalls(horizontal))
+            traverse = 0;
+
         if (!hookshotControl.IsHooked())
         {
-            Vector2 lateralForce = new Vector2(horizontal * moveForce, 0);
+            Vector2 lateralForce = new Vector2(horizontal * moveForce * traverse, 0);
 
             if (Mathf.Abs(player.velocity.x) < speed)
                 player.AddForce(lateralForce);
@@ -44,8 +51,8 @@ public class LateralMovement : MonoBehaviour
             Vector2 pivotPoint = hookshotControl.HookPoint();
             if (horizontal > 0 && pivotPoint.x >= transform.position.x || horizontal < 0 && pivotPoint.x <= transform.position.x)
             {
-                Vector2 lateralForce = Vector3.Cross((Vector3)pivotPoint - transform.position, Vector3.forward).normalized;
-                lateralForce *= horizontal * force / (player.velocity.magnitude + 1f);
+                Vector2 lateralForce = Vector3.Cross((Vector3)pivotPoint - transform.position, Vector3.forward).normalized;                
+                lateralForce *= horizontal * force * traverse/ (player.velocity.magnitude + 1f);
                 player.AddForce(lateralForce);
             }
         }
@@ -58,5 +65,19 @@ public class LateralMovement : MonoBehaviour
             Quaternion rot = horizontal == 1 ? Quaternion.Euler(0, 0, -5.73f) : Quaternion.Euler(0, 180, -5.73f);
             characterSprite.transform.rotation = rot;
         }
+    }
+
+    bool checkWalls(float d)
+    {
+        if (d > 0)
+        {
+            return wallSensorRight.emptySpace;
+        }
+        else if (d < 0)
+        {
+            return wallSensorLeft.emptySpace;
+        }
+        else
+            return true;
     }
 }

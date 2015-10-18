@@ -51,8 +51,7 @@ public class HookshotControl : MonoBehaviour {
     {
         playerColliders = new List<Collider2D>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        GameObject frogSprite = (GameObject)player.transform.Find("FrogSprite").gameObject;
-        foreach(Collider2D shittyCollider in frogSprite.GetComponents<Collider2D>())
+        foreach(Collider2D shittyCollider in player.GetComponents<Collider2D>())
             playerColliders.Add(shittyCollider);
     }
 

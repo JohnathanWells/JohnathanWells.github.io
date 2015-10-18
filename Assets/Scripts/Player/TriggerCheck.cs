@@ -32,9 +32,9 @@ public class TriggerCheck : MonoBehaviour {
 
     void Respawn()
     {
-        if (!hookshot.IsHooked())
+        transform.position = lastSpawn.transform.position;
+        if (hookshot.IsHooked())
         {
-            transform.position = lastSpawn.transform.position;
             hookshot.CancelHook();
         }
     }

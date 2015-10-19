@@ -37,7 +37,7 @@ public class HookshotControl : MonoBehaviour {
     private HookshotState state;
     private Vector2 retractPoint;
     private float stateSwitchTime;
-
+    public bool isHooked = false;
 
     void Start()
     {
@@ -73,6 +73,7 @@ public class HookshotControl : MonoBehaviour {
 
     void Ready()
     {
+        isHooked = false;
         if (Input.GetButtonDown("Fire1"))
         {
             FireHookAndRope();
@@ -84,10 +85,13 @@ public class HookshotControl : MonoBehaviour {
 
     void Hooked()
     {
+        isHooked = true;
+
         if (Input.GetButtonDown("Fire1"))
         {
             DestroyHookAndRope();
             ChangeState(HookshotState.READY);
+            isHooked = false;
         }
 
         RotatGunToFaceHook();

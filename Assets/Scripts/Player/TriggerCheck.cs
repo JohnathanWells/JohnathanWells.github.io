@@ -6,6 +6,8 @@ public class TriggerCheck : MonoBehaviour {
 
     private GameObject lastSpawn;
 
+    public HookshotControl hookShot;
+
     void OnTriggerEnter2D(Collider2D c)
     {
         if (c.CompareTag("Win Condition"))
@@ -16,7 +18,7 @@ public class TriggerCheck : MonoBehaviour {
         {
             lastSpawn = c.gameObject;
         }
-        if (c.CompareTag("Enemy"))
+        if (c.CompareTag("Enemy") || (c.CompareTag("Water") && !hookshot.isHooked))
         {
             Respawn();
         }

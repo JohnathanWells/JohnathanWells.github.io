@@ -10,8 +10,8 @@ public class LateralMovement : MonoBehaviour
     public SpriteRenderer characterSprite;
     private Rigidbody2D player;
     private Vector2 contactNormal;
-    public wallSensor wallSensorRight;
-    public wallSensor wallSensorLeft;
+    public WallSensor wallSensorRight;
+    public WallSensor wallSensorLeft;
 
     void Start()
     {

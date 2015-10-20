@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class wallSensor : MonoBehaviour {
+public class WallSensor : MonoBehaviour {
 
     public bool emptySpace;
 

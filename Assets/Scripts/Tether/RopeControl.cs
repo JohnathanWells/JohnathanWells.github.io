@@ -30,19 +30,17 @@ public class RopeControl : MonoBehaviour {
     private DistanceJoint2D rope;
     private SpringJoint2D spring;
 
-    private bool attached;
     private bool boostEnabled;
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
         line = GetComponent<LineRenderer>();
-        attached = false;
         boostEnabled = false;
 	}
 
 	void Update () {
-        if (attached) {
+        if (hookshot.IsHooked()) {
             boostEnabled = Input.GetButton("Fire2");
         } else if (Vector3.Distance(hookshot.transform.position, hook.transform.position) > ropeProperties.maxLength) {
             hookshot.RetractRope();
@@ -51,7 +49,7 @@ public class RopeControl : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (attached) {
+        if (hookshot.IsHooked()) {
             ControlRope();
             RotateObjectTowardsRope();
         }
@@ -70,7 +68,6 @@ public class RopeControl : MonoBehaviour {
     public void AttachRope()
     {
         MakeRope();
-        attached = true;
         DrawRope();
     }
 
@@ -91,12 +88,11 @@ public class RopeControl : MonoBehaviour {
 
     public void DetachRope()
     {
-        if (attached)
+        if (hookshot.IsHooked())
         {
             playerRenderer.gameObject.transform.rotation = Quaternion.identity;
             DestroyObject(rope);
         }
-        attached = false;
     }
 
     void RotateObjectTowardsRope()
@@ -111,7 +107,7 @@ public class RopeControl : MonoBehaviour {
 
     void DrawRope()
     {
-        if (attached)
+        if (hookshot.IsHooked())
             line.SetPosition(0, rope.transform.position + (Vector3)rope.anchor);
         else
             line.SetPosition(0, player.transform.position 

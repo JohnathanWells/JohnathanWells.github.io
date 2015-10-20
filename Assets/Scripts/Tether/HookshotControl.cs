@@ -159,7 +159,8 @@ public class HookshotControl : MonoBehaviour {
 
     public void CancelHook()
     {
-        DestroyHookAndRope();
+        if(state != HookshotState.READY)
+            DestroyHookAndRope();
         ChangeState(HookshotState.READY);
     }
 

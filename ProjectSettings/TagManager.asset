@@ -11,6 +11,7 @@ TagManager:
   - Win Condition
   - Rope
   - Platform
+  - Water
   layers:
   - Default
   - TransparentFX

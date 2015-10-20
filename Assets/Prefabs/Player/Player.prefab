@@ -190,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5092721, y: 4.562747, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424174}
@@ -331,7 +331,6 @@ MonoBehaviour:
   hookOffset: {x: .800000012, y: 0}
   retractTime: .25
   mouseAimer: {fileID: 11444918}
-  isHooked: 0
 --- !u!114 &11414272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -430,7 +429,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hookshot: {fileID: 11405712}
-  hookShot: {fileID: 11405712}
 --- !u!212 &21231396
 SpriteRenderer:
   m_ObjectHideFlags: 1

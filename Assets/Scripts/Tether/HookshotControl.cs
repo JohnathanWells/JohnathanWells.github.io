@@ -24,7 +24,6 @@ public class HookshotControl : MonoBehaviour {
 
     public GameObject hookFab;
     public GameObject ropeFab;
-    public Vector2 hookOffset;
 
     public float retractTime;
 
@@ -107,8 +106,7 @@ public class HookshotControl : MonoBehaviour {
     void FireHookAndRope()
     {
         // Shoot out a hook instance
-        Vector3 hookPosition = transform.position + transform.rotation * hookOffset;
-        hook = (GameObject)Instantiate(hookFab, hookPosition, transform.rotation);
+        hook = (GameObject)Instantiate(hookFab, transform.position, transform.rotation);
         hook.GetComponent<Hook>().hookGun = this;
 
         IgnoreHookPlayerCollisions();

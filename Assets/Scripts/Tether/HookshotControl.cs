@@ -82,7 +82,7 @@ public class HookshotControl : MonoBehaviour {
 
     void Hooked()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
         {
             DestroyHookAndRope();
             ChangeState(HookshotState.READY);

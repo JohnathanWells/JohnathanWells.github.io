@@ -6,7 +6,7 @@ public class GroundSensor : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Environment"))
+        if (other.CompareTag("Environment") || other.CompareTag("Hookable"))
         {
             player.SetGrounded(true);
         }
@@ -14,7 +14,7 @@ public class GroundSensor : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Environment"))
+        if (other.CompareTag("Environment") || other.CompareTag("Hookable"))
         {
             player.SetGrounded(false);
         }
